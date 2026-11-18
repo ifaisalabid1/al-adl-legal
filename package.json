@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "build": "webpack",
+    "build2": "webpack --config webpack.develawp.config.js",
+    "django:dev": "python manage.py runserver",
+    "tailwind:dev": "npx tailwindcss -i ./static/css/tailwind/tailwind-input.css -o ./static/css/tailwind/tailwind.css --watch",
+    "dev": "concurrently \"pnpm django:dev\" \"pnpm tailwind:dev\"",
+    "minify": "npx tailwindcss -i ./static/css/tailwind/tailwind-input.css -o ./static/css/tailwind/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.15",
+    "concurrently": "^9.1.2",
+    "css-loader": "^6.8.1",
+    "prettier": "^3.8.1",
+    "prettier-plugin-jinja-template": "^2.1.0",
+    "style-loader": "^3.3.3",
+    "tailwindcss": "^3.3.2",
+    "webpack": "^5.85.0",
+    "webpack-cli": "^5.1.2"
+  },
+  "dependencies": {
+    "@fontsource-variable/josefin-sans": "^5.2.8",
+    "@fontsource/kulim-park": "^5.2.8",
+    "alpinejs": "^3.12.2",
+    "aos": "^3.0.0-beta.6",
+    "htmx.org": "^1.9.2"
+  }
+}

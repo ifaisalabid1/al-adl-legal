@@ -1,0 +1,46 @@
+{% load static %}
+
+<section class="container my-20">
+  <div class="flex items-center justify-center md:justify-between">
+    <h1 class="pb-2 text-3xl font-bold border border-t-0 md:block md:text-5xl w-fit border-b-primary border-x-0">
+      Services
+    </h1>
+
+    {% if not show_view_all %}
+    <div>
+      <a href="{% url 'services' %}" class="flex items-center gap-2 py-2 btn"
+        >View All
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="inline bi bi-arrow-right-circle-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+          />
+        </svg>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="grid grid-cols-1 gap-6 mt-12 justify-items-center md:grid-cols-4 md:gap-x-28 md:gap-y-20">
+    {% for service in services %}
+    <a href="{% url 'service' service.slug %}">
+      <div
+        class="pb-16 border border-r-0 border-y-0 border-l-primary"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <h3 class="pb-2 pl-3 text-xl">{{ service.name }}</h3>
+        {% if service.thumbnail_image %}
+        <img loading="lazy" src="{{ service.thumbnail_image.url }}" alt="{{ service.name }}" />
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,17 @@
+{% extends "website/layouts/nav_footer_layout_alt.html" %}
+
+{% block title %}Services | Al Adl Legal{% endblock %}
+
+{% block seo_og_title %}Services | Al Adl Legal{% endblock %}
+{% block seo_url %}{{ block.super }}{% url 'services' %}{% endblock %}
+
+{% block tw_seo_title %}Search Results | Al Adl Legal{% endblock %}
+{% block tw_seo_url %}{{ block.super }}{% url 'services' %}{% endblock %}
+
+{% block canonical %}{{ block.super }}{% url 'services' %}{% endblock %}
+
+{% block content %}
+
+{% include 'website/includes/services_section.html' with show_view_all="yes" %}
+
+{% endblock content %}

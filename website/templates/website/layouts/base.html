@@ -1,0 +1,114 @@
+{% load compress %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel='dns-prefetch' href='//www.googletagmanager.com' />
+    <link rel='dns-prefetch' href='//ajax.googleapis.com' />
+    <link rel='dns-prefetch' href='//fonts.gstatic.com' />
+    <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+    <link rel='dns-prefetch' href='//www.googleanalytics.com' />
+    <link rel='dns-prefetch' href='//www.doubleclickbygoogle.com' />
+    <link rel='dns-prefetch' href='//developers.google.com' />
+    <link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+    {% block meta_tags %}
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="{% static 'website/img/apple-touch-icon.png' %}">
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="{% static 'website/img/favicon-32x32.png' %}">
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="{% static 'website/img/favicon-16x16.png' %}">
+      <link rel="manifest" href="{% static 'website/img/site.webmanifest' %}">
+    {% endblock %}
+    {% block favicon %}
+      <link rel="shortcut icon"
+            type="image/png"
+            href="{% static 'website/img/logo.webp' %}" />
+    {% endblock %}
+    {% block seo_head %}
+      {# Title Block of the page #}
+      <title>
+        {% block title %}{{ config.COMPANY_SEO_INDEX_TITLE }}{% endblock %}
+      </title>
+      <meta name="description"
+            content="{% block seo_description %}{{ config.COMPANY_SEO_DESCRIPTION }}{% endblock %}" />
+      <meta name="keywords"
+            content="{% block seo_keywords %}{{ config.COMPANY_SEO_KEYWORDS }}{% endblock %}" />
+      <meta name="robots" content="index, follow, noodp, noydir">
+      <meta name="googlebot" content="noodp, noydir">
+      <meta name="slurp" content="noodp, noydir">
+      <meta name="msnbot" content="noodp, noydir">
+      <meta name="revisit-after" content="2 days">
+      <meta name="author" content="Al Adl Legal">
+      <meta name="copyright" content="Al Adl Legal">
+      <meta name="language" content="English">
+      <meta name="rating" content="safe for kids">
+      <meta name="web_author" content="Al Adl Legal">
+      <meta http-equiv="Cache-control" content="public">
+      <meta name=”geo.region” content=”UAE” />
+      <meta name=”geo.placename” content=”Dubai” />
+      <meta name=”geo.position” content=”25.186174;55.272859″ />
+      <meta name=”ICBM” content=”25.186174,55.272859″ />
+      <meta name="og:title"
+            content="{% block seo_og_title %}{{ config.COMPANY_SEO_INDEX_TITLE }}{% endblock %}" />
+      <meta name="og:type" content="website" />
+      <meta name="og:description"
+            content="{% block seo_og_description %}{{ config.COMPANY_SEO_DESCRIPTION }}{% endblock %}" />
+      <meta name="og:url"
+            content="{% block seo_url %}{{ config.COMPANY_WEBSITE }}{% endblock %}" />
+      <meta name="og:image"
+            content="{% block seo_image %}{{ config.COMPANY_SEO_IMAGE }}{% endblock %}" />
+      <meta name="twitter:url"
+            content="{% block tw_seo_url %}{{ config.COMPANY_WEBSITE }}{% endblock %}" />
+      <meta name="twitter:title"
+            content="{% block tw_seo_title %}{{ config.COMPANY_SEO_INDEX_TITLE }}{% endblock %}" />
+      <meta name="twitter:description"
+            content="{% block tw_seo_description %}{{ config.COMPANY_SEO_DESCRIPTION }}{% endblock %}" />
+      <link rel="canonical"
+            href="{% block canonical %}{{ config.COMPANY_WEBSITE }}{% endblock %}" />
+    {% endblock seo_head %}
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Corporation","name":"Al Adl Legal","alternateName":"Al Adl Legal - Legal Consultants in Dubai","url":"https://aladllegal.com/","logo":"https://aladllegal.com/static/website/img/logo.webp","sameAs":["https://www.facebook.com/aladllegal","https://twitter.com/adl_legal","https://instagram.com/aladluae","https://www.youtube.com/@AlAdlLegalConsultantsUAE","https://www.linkedin.com/company/al-adl-legal-consultants/","https://maps.app.goo.gl/17tKTFXaQD9DnFDP6"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Attorney","name":"Al Adl Legal","image":"https://aladllegal.com/static/website/img/logo.webp","@id":"https://aladllegal.com/","url":"https://aladllegal.com/","telephone":"+971502251021","address":{"@type":"PostalAddress","streetAddress":"Al Adl Legal,DAMAC Business Tower, 7th Floor, Office Number 701, Marasi Drive, Business Bay Dubai","addressLocality":"Dubai","postalCode":"","addressCountry":"AE"},"geo":{"@type":"GeoCoordinates","latitude":25.1805388,"longitude":55.2682782},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"sameAs":["https://www.facebook.com/aladllegal","https://twitter.com/adl_legal","https://instagram.com/aladluae","https://www.youtube.com/@AlAdlLegalConsultantsUAE","https://www.linkedin.com/company/al-adl-legal-consultants/","https://maps.app.goo.gl/17tKTFXaQD9DnFDP6"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org/","@type":"WebSite","name":"Al Adl Legal - Legal Consultants in Dubai","url":"https://aladllegal.com/","potentialAction":{"@type":"SearchAction","target":"https://aladllegal.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+    {% block extra_seo_head %}{% endblock %}
+    {% compress css %}
+      <link rel="stylesheet" href="{% static 'css/tailwind/tailwind.css' %}">
+      <link rel="stylesheet" href="{% static 'css/aos/aos.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/swiper/swiper.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% endcompress %}
+    {% block extra_style %}
+    {% endblock extra_style %}
+  </head>
+  <body>
+    {% block body %}
+    {% endblock body %}
+    <!-- Google tag (gtag.js) -->
+    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11482386532"></script>-->
+    {% compress js %}
+      <script src="{% static '/js/main.js' %}"></script>
+      <script src="{% static '/js/swiper/swiper.min.js' %}"></script>
+      <script src="{% static '/js/typer/typer.js' %}"></script>
+    {% endcompress %}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS6RNT4BZK"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FS6RNT4BZK');
+    </script>
+    {% block extra_script %}
+    {% endblock extra_script %}
+  </body>
+</html>

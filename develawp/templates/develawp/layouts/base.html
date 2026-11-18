@@ -1,0 +1,96 @@
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+  <link rel='dns-prefetch' href='//www.googletagmanager.com' />
+  <link rel='dns-prefetch' href='//ajax.googleapis.com' />
+  <link rel='dns-prefetch' href='//fonts.gstatic.com' />
+  <link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+  <link rel='dns-prefetch' href='//www.googleanalytics.com' />
+  <link rel='dns-prefetch' href='//www.doubleclickbygoogle.com' />
+  <link rel='dns-prefetch' href='//developers.google.com' />
+  <link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+
+  {% block meta_tags %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'website/img/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'website/img/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'website/img/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'website/img/site.webmanifest' %}">
+  {% endblock %}
+
+  {% block favicon %}
+  <link rel="shortcut icon" type="image/png" href="{% static 'website/img/logo.webp' %}" />
+  {% endblock %}
+
+  {% block seo_head %}
+  {# Title Block of the page #}
+  <title>{% block title %}Develawp{% endblock %}</title>
+  <meta name="description" content="{% block seo_description %}{{ config.COMPANY_SEO_DESCRIPTION }}{% endblock %}" />
+  <meta name="keywords" content="{% block seo_keywords %}{{ config.COMPANY_SEO_KEYWORDS }}{% endblock %}" />
+  <meta name="robots" content="index, follow, noodp, noydir">
+  <meta name="googlebot" content="noodp, noydir">
+  <meta name="slurp" content="noodp, noydir">
+  <meta name="msnbot" content="noodp, noydir">
+  <meta name="revisit-after" content="2 days">
+  <meta name="author" content="Develawp">
+  <meta name="copyright" content="Develawp">
+  <meta name="language" content="English">
+  <meta name="rating" content="safe for kids">
+  <meta name="web_author" content="Develawp">
+  <meta http-equiv="Cache-control" content="public">
+
+  <meta name="og:title" content="{% block seo_og_title %}Develawp{% endblock %}" />
+  <meta name="og:type" content="website" />
+  <meta name="og:description"
+        content="{% block seo_og_description %}{{ config.COMPANY_SEO_DESCRIPTION }}{% endblock %}" />
+  <meta name="og:url" content="{% block seo_url %}{{ config.COMPANY_WEBSITE }}{% endblock %}" />
+  <meta name="og:image" content="{% block seo_image %}{{ config.COMPANY_SEO_IMAGE }}{% endblock %}" />
+
+  <meta name="twitter:url" content="{% block tw_seo_url %}{{ config.COMPANY_WEBSITE }}{% endblock %}" />
+  <meta name="twitter:title" content="{% block tw_seo_title %}{{ config.COMPANY_SEO_INDEX_TITLE }}{% endblock %}" />
+  <meta name="twitter:description"
+        content="{% block tw_seo_description %}{{ config.COMPANY_SEO_DESCRIPTION }}{% endblock %}" />
+
+  <link rel="canonical" href="{% block canonical %}{{ config.COMPANY_WEBSITE }}{% endblock %}" />
+  {% endblock seo_head %}
+
+  {% block extra_seo_head %}
+  {% endblock %}
+
+  {% compress css %}
+  <link rel="stylesheet" href="{% static 'css/tailwind/develawp.css' %}">
+  <link rel="stylesheet" href="{% static 'css/swiper/swiper.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/develawp-styles.css' %}">
+  {% endcompress %}
+
+  {% block extra_style %}
+  {% endblock extra_style %}
+</head>
+
+
+<body>
+{% block body %}
+{% endblock body %}
+
+
+{% compress js %}
+<script src="{% static 'js/swiper/swiper.min.js' %}"></script>
+<script src="{% static 'develawp/js/main.js' %}"></script>
+{% endcompress %}
+
+{% block extra_script %}
+<script
+src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
+defer
+></script>
+{% endblock extra_script %}
+</body>
+
+</html>

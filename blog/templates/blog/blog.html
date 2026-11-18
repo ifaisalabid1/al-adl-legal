@@ -1,0 +1,172 @@
+{% extends "website/layouts/nav_footer_layout_alt.html" %}
+
+{% load social_share %}
+
+{% load static %}
+
+{% block title %}{{ blog.seo_title }}{% endblock %}
+{% block seo_description %}{{ blog.seo_description }}{% endblock %}
+{% block seo_keywords %}{{ blog.seo_keywords }}{% endblock %}
+
+{% block seo_og_title %} {{ blog.seo_title }}{% endblock %}
+{% block seo_og_description %} {{ blog.seo_description }} {% endblock %}
+{% block seo_url %}{{ block.super }}{% url 'blog_detail' blog.slug %}{% endblock %}
+
+{% block tw_seo_title %}{{ blog.seo_title }}{% endblock %}
+{% block tw_seo_url %}{{ block.super }}{% url 'blog_detail' blog.slug %}{% endblock %}
+{% block tw_seo_description %}{{ blog.seo_description }}{% endblock %}
+
+
+{% if blog.seo_image.url %}
+{% block image %} {{ blog.seo_image.url }}{% endblock %}
+{% endif %}
+{% block canonical %}{{ block.super }}{% url 'blog_detail' blog.slug %}{% endblock %}
+
+{% block extra_seo_head %}
+    <meta content="{{ blog.updated_at|date:"c" }}" property="article:modified_time">
+    <meta content="{{ blog.created_at|date:"c" }}" property="article:published_time">
+    <script type="application/ld_json">{"@context":"https://schema.org/","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Al Adl Legal - News and Articles","item":"https://aladllegal.com/news/"},{"@type":"ListItem","position":2,"name":"{{ blog.title }}","item":"{{ config.COMPANY_WEBSITE }}{% url 'blog_detail' blog.slug %}"}]}</script>
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-16 md:mt-20">
+    <!-- Breadcrumb -->
+    <nav class="flex px-5 py-3 bg-gray-100 border" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <li class="inline-flex items-center">
+                <a href="{% url 'home' %}"
+                    class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary">
+                    <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                        </path>
+                    </svg>
+                    Home
+                </a>
+            </li>
+
+            <li class="inline-flex items-center">
+                <a href="{% url 'blog_list' %}"
+                    class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary">
+                    <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    News and Articles
+                </a>
+            </li>
+
+            <li aria-current="page">
+                <div class="flex items-center">
+                    <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">{{ blog.title }}</span>
+                </div>
+            </li>
+        </ol>
+    </nav>
+
+    <h1 class="mt-12 text-5xl font-bold w-fit">{{ blog.title }}</h1>
+
+    <div class="mt-8">
+        <p class="text-zinc-600">
+            Published: {% if blog.publish_date %}
+            {{ blog.publish_date }}
+            {% else %}
+            {{blog.created_at | date }}
+            {% endif %}
+        </p>
+    
+        <p class="mt-1 text-zinc-600">Last Updated: {{ blog.updated_at |date}}</p>
+    </div>
+</div>
+
+<section class="container grid grid-cols-1 gap-12 my-12 lg:grid-cols-3">
+    <div class="lg:col-span-2">
+        <img src="{{ blog.thumbnail_image.url }}" alt="{{ blog.title }}" class="w-full rounded-lg lg:max-w-2xl" loading="lazy">
+        <div class="mt-12 prose prose-lg text-justify prose-img:rounded-lg max-w-none">
+            {{ blog.body | safe }}
+        </div>
+
+        <div>
+            <div class="mb-4">
+                <div class="text-justify">
+                    <div class="">
+                        <br>
+                        <br>
+                        Share This:
+                        <br>
+                        <br>
+                        <div class="flex gap-4">
+                            {% post_to_facebook url "Post to Facebook!" %}
+                            {% post_to_twitter url "Post to Twitter" %}
+                            {% post_to_linkedin object_or_url "Post to LinkedIn" %}
+                            {% send_email "{{blog.title}}" url "Share via email" %}
+                            {% post_to_reddit "{{ blog.title }}" url %}
+                            {% post_to_telegram "{{ blog.title }}" url %}
+                            {% post_to_whatsapp object_or_url "Share via WhatsApp" %}
+                        </div>
+                    </div>
+                    <hr class="mt-4">
+                </div>
+        
+            </div>
+        
+            {% for category in categories %}
+            <!-- <a role="button" href="{% url 'blog_category' category.generate_slug %}" title="{{ category.name }}">
+                <span class="badge badge-sm btn-primary">{{ category.name }}</span>
+            </a> -->
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="lg:col-span-1">
+
+        {% if blog.service %}
+
+        <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow mb-4">
+            <a href="{% url 'service' blog.service.slug %}">
+                <h3 class="mb-4 text-3xl font-bold tracking-tight">Read More About {{ blog.service }}</h3>
+                <p>{{ blog.service.short_description }}</p>
+            </a>
+            <a href="{% url 'service' blog.service.slug %}" class="inline-flex mt-6 btn">
+                {{ blog.service }}
+            </a>
+        </div>
+        {% endif %}
+        <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow">
+            <a href="#">
+                <h3 class="mb-4 text-3xl font-bold tracking-tight">Got a Legal Question?</h3>
+            </a>
+            <p class="font-normal">Connect with lawyers and seek expert legal advice</p>
+            <a href="{% url 'contact-us' %}" class="inline-flex mt-6 btn">
+                Ask a Question
+            </a>
+        </div>
+    </div>
+</section>
+
+    
+
+
+{% if blog.get_related_objects %}
+<div class="container">
+    <h2 class="pb-3 mx-auto mt-20 text-4xl font-bold border-b w-fit border-b-primary md:text-4xl"> Similar News and Articles</h2>
+    <div class="grid gap-8 mt-8 mb-16 md:grid-cols-3 md:mb-20">
+
+        {% for similar_blog in blog.get_related_objects %}
+        {% include 'blog/includes/single_blog_card.html' with blog=similar_blog %}
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

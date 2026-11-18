@@ -1,0 +1,183 @@
+@import "@fontsource-variable/josefin-sans/wght.css";
+@import "@fontsource/kulim-park/400-italic.css";
+@import "@fontsource/kulim-park/600-italic.css";
+@import "@fontsource/kulim-park/700-italic.css";
+
+.services-grid {
+  background:
+    linear-gradient(rgba(39, 39, 39, 0.5), rgba(39, 39, 39, 0.5)),
+    url("/static/website/img/services-grid-bg.webp") no-repeat center;
+  background-size: cover;
+}
+
+.in-numbers {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/static/website/img/in-number-bg.webp") no-repeat center;
+  background-size: cover;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #628078 !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #fff !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #fff !important;
+}
+
+.team-slide .swiper-button-prev,
+.team-slide .swiper-button-next,
+.testimonial .swiper-button-prev,
+.testimonial .swiper-button-next {
+  color: #201d1e !important;
+}
+
+.testimonial .swiper-pagination-bullet,
+.testimonial .swiper-pagination-bullet-active {
+  background-color: #201d1e !important;
+}
+
+.navbar {
+  background:
+    linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)),
+    url("/static/website/img/banner-bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 98dvh;
+}
+
+.about-bg {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("/static/website/img/banner7-cropped.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+.team-bg {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("/static/website/img/Teambanner_2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+.contact-bg {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/static/website/img/contact-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+.service-bg {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/static/website/img/pexels-pixabay-48148.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 78%);
+}
+
+@media screen and (max-width: 768px) {
+  .card-clip {
+    clip-path: none;
+  }
+
+  .navbar {
+    height: auto;
+  }
+}
+
+.hero {
+  background-image: url("/static/website/img/hero-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 700px;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    background: url("/static/website/img/hero-bg.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .map iframe {
+    height: 300px;
+  }
+}
+
+.team-section {
+  background:
+    linear-gradient(rgba(233, 233, 232, 0.3), rgba(233, 233, 232, 0.3)),
+    url("/static/website/img/tarazoo.webp") no-repeat top 10% left;
+  background-size: 70%;
+}
+
+.team-section-content {
+  background:
+    linear-gradient(rgba(233, 233, 232, 0.8), rgba(233, 233, 232, 0.8)),
+    url("/static/website/img/logo.webp") no-repeat top 60% center;
+  background-size: 40%;
+}
+
+.contact-homepage {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("/static/website/img/contact-homepage-bg.webp") no-repeat center;
+  background-size: cover;
+}
+
+@media (min-width: 600px) {
+  .navbar_alt.scrolling-navbar.top-nav-collapse {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+
+@media (min-width: 600px) {
+  .navbar_alt.scrolling-navbar.top-nav-collapse {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}
+
+@media (min-width: 600px) {
+  .navbar_alt.scrolling-navbar {
+    -webkit-transition:
+      background 0.5s ease-in-out,
+      padding 0.5s ease-in-out;
+    -o-transition:
+      background 0.5s ease-in-out,
+      padding 0.5s ease-in-out;
+    transition:
+      background 0.5s ease-in-out,
+      padding 0.5s ease-in-out;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

@@ -1,0 +1,116 @@
+{% extends "website/layouts/nav_footer_layout_alt.html" %}
+
+{% load static %}
+{% load mptt_tags %}
+
+
+{% block title %}{{ blog_category.name }}{% endblock %}
+{% block seo_og_title %}{{ blog_category.name }}{% endblock %}
+{% block tw_seo_title %}{{ blog_category.name }}{% endblock %}
+{% block seo_url %}{{ config.COMPANY_WEBSITE }}{% url 'blog_category' blog_category.slug %}{% endblock %}
+{% block tw_seo_url %}{{ config.COMPANY_WEBSITE }}{% url 'blog_category' blog_category.slug %}{% endblock %}
+{% block canonical %}{{ config.COMPANY_WEBSITE }}{% url 'blog_category' blog_category.slug %}{% endblock %}
+
+{% block extra_seo_head %}
+    <script type="application/ld_json">{"@context":"https://schema.org/","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Al Adl Legal- News and Articles","item":"https://aladllegal.com/news/"},{"@type":"ListItem","position":2,"name":"Al Adl Legal- News and Articles Categories","item":"https://aladllegal.com/news/categories/"},{"@type":"ListItem","position":3,"name":"{{ blog_category.name }}","item":"{{ config.COMPANY_WEBSITE }}{% url 'blog_category' blog_category.slug %}"}]}</script>
+{% endblock %}
+
+
+{% block content %}
+<div class="container my-16 md:my-20">
+    <!-- Section: Block Content -->
+    <section>
+        <div class="text-center">
+            <h3 class="pb-3 mx-auto text-3xl font-bold border-b w-fit border-b-primary md:text-5xl">
+                {{ blog_category.name }} - Al Adl Legal
+            </h3>
+
+        </div>
+        <!-- breadcrumb -->
+
+        <!-- Breadcrumb -->
+        <nav class="flex px-5 py-3 mt-12 text-gray-700 border border-gray-200 bg-gray-50" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="{% url 'home' %}" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary">
+                        <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                    d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+
+                <li class="inline-flex items-center">
+                    <a href="{% url 'blog_list' %}" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary">
+                        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                        News and Articles
+                    </a>
+                </li>
+
+                <li class="inline-flex items-center">
+                    <a href="{% url 'blog_categories' %}" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary">
+                        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                        Categories
+                    </a>
+                </li>
+
+                {% if blog_category %}
+                {% recursetree blog_category.get_ancestors %}
+                <li class="inline-flex items-center">
+                    {% if not node.is_leaf_node %}
+                    <a href="{% url 'blog_category' node.slug %}" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary">
+                        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                        {{ node.name }}
+                    </a>
+                    {% endif %}
+                </li>
+                {% endrecursetree %}
+                {% endif %}
+
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2"> {{ blog_category.name }}</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+
+
+        <!-- Grid row -->
+        <section class="grid gap-8 mt-8 md:grid-cols-3">
+            {% for blog in blogs %}
+            {% include 'blog/includes/single_blog_card.html' with blog=blog %}
+            {% endfor %}
+        </section>
+        <!-- Grid row -->
+        {% include 'blog/includes/paginator.html' %}
+    </section>
+    <!-- Section: Block Content -->
+
+
+</div>
+{% endblock %}

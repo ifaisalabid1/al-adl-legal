@@ -1,0 +1,772 @@
+{% load static %}
+<div
+  class="z-50 {% block navbar_css %}flex bg-transparent justify-center{% endblock navbar_css %}"
+  x-data="{ open: false }"
+>
+  <nav
+    class="absolute w-full overflow-scroll p-6 text-white duration-300 bg-secondary top-[130px] end-0 lg:hidden opacity-0"
+    :class="{'translate-x-0 ease-in opacity-100':open === true, 'ease-out hidden': open === false}"
+  >
+    <ul
+      class="flex flex-col gap-3 text-sm uppercase"
+      x-data="{practicalAreaSwitch: false}"
+    >
+      <li>
+        <a href="{% url 'home' %}">Home</a>
+      </li>
+      <li>
+        <a href="{% url 'about-us' %}">About</a>
+      </li>
+      <li>
+        <a href="{% url 'legal-team' %}">Our Team</a>
+      </li>
+      <li class="flex items-center">
+        <a href="{% url 'services' %}">services</a>
+        <span
+          @click="practicalAreaSwitch = !practicalAreaSwitch"
+          class="ml-2 text-2xl"
+          >+</span
+        >
+      </li>
+      <li
+        x-show="practicalAreaSwitch"
+        class="p-4 overflow-scroll bg-transparent h-fit"
+      >
+        <ul class="flex flex-col gap-3 text-white">
+          <li>
+            <a
+              href="{% url 'service' 'arbitration-lawyers-in-dubai' %}"
+              class=""
+              >ARBITRATION</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'service' 'banking-finance-lawyers-dubai' %}"
+              class=""
+              >BANKING & FINANCE</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'service' 'bankruptcy-insolvency-legal-services-dubai' %}"
+              class=""
+              >BANKRUPTCY & INSOLVENCY</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'service' 'commercial-lawyers-dubai' %}" class=""
+              >COMMERCIAL LAW</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'service' 'company-setup-incorporation-lawyers-dubai' %}"
+              class=""
+              >COMPANY SETUP & INCORPORATION</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'service' 'competition-law-dubai' %}" class=""
+              >COMPETITION</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'service' 'corporate-structuring-re-structuring-lawyers-dubai' %}"
+              class=""
+              >CORPORATE STRUCTURING & RESTRUCTURING</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'service' 'criminal-lawyer-dubai' %}" class=""
+              >CRIMINAL LAW</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'service' 'digital-data-law-firm-dubai' %}" class=""
+              >DIGITAL & DATA</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'service' 'employment-labour-lawyer-dubai' %}"
+              class=""
+              >EMPLOYMENT & INCENTIVES</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'service' 'family-inheritance-estate-planning-lawyers-dubai' %}"
+              class=""
+              >FAMILY INHERITANCE & ESTATE PLANNING</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'service' 'insurance-lawyers-in-dubai' %}" class=""
+              >INSURANCE</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'service' 'intellectual-property-lawyer-dubai' %}"
+              class=""
+              >INTELLECTUAL PROPERTY</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'service' 'litigation-lawyers-dubai' %}" class=""
+              >LITIGATION ADVISORY</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'service' 'real-estate-construction-lawyers-dubai' %}"
+              class=""
+              >REAL ESTATE, CONSTRUCTION & INFRASTRUCTURE</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'service' 'shipping-aviation-logistics-legal-services' %}"
+              class=""
+              >SHIPPING, AVIATION & LOGISTICS</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'service' 'white-collar-crime-lawyers-dubai' %}"
+              class=""
+              >WHITE COLLAR CRIMES</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="{% url 'blog_list' %}">News</a>
+      </li>
+      <li>
+        <a href="{% url 'faqs' %}">FAQ</a>
+      </li>
+      <li>
+        <a href="{% url 'contact-us' %}">Contact</a>
+      </li>
+      <li>
+        <a href="{% url 'develawp_home' %}">Develawp</a>
+      </li>
+      <li class="" x-data="{searchSwitch: false}">
+        <div x-on:click="searchSwitch = !searchSwitch" x-show="!searchSwitch">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+        </div>
+        <form
+          action="{% url 'search' %}"
+          method="GET"
+          x-show="searchSwitch"
+          x-transition.duration.300ms
+        >
+          <div class="relative mx-auto text-gray-600 lg:block">
+            <input
+              class="h-10 pl-2 pr-8 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none"
+              type="search"
+              name="q"
+              id="id_q"
+              placeholder="Search"
+            />
+            <button
+              type="submit"
+              class="absolute top-0 mt-3 mr-2 md:right-0 right-8"
+            >
+              <svg
+                class="w-4 h-4 text-white fill-current md:text-gray-600"
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                id="Capa_1"
+                x="0px"
+                y="0px"
+                viewBox="0 0 56.966 56.966"
+                style="enable-background: new 0 0 56.966 56.966"
+                xml:space="preserve"
+                width="512px"
+                height="512px"
+              >
+                <path
+                  d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </nav>
+  <div
+    class="container absolute justify-between py-6 text-sm bg-transparent lg:flex"
+  >
+    <div class="flex justify-between">
+      <span class="block">
+        <div>
+          <a href="{% url 'home' %}">
+            <img
+              loading="lazy"
+              src="{% static 'website/img/logo.webp' %}"
+              alt="Al Adl Logo"
+              class="w-16 lg:w-28"
+            />
+          </a>
+        </div>
+      </span>
+      <span class="block text-2xl cursor-pointer lg:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="currentColor"
+          class="mt-6 text-white bi bi-list"
+          viewBox="0 0 16 16"
+          @click="open = !open"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div class="items-center hidden lg:flex">
+      <ul
+        class="text-white uppercase font-bold lg:flex lg:items-center gap-x-6 z-[-1] lg:z-auto lg:static absolute bg-transparent w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-300"
+      >
+        <li class="">
+          <a href="/">Home</a>
+        </li>
+        <li class="">
+          <a href="{% url 'about-us' %}">About</a>
+        </li>
+        <li class="">
+          <a href="{% url 'legal-team' %}">Our Team</a>
+        </li>
+        <li
+          class="group hover:bg-transparent"
+          x-data="{ resourcesMenu: false }"
+          x-on:mouseover="resourcesMenu = true"
+          x-on:mouseleave="resourcesMenu = false"
+        >
+          <a
+            href="{% url 'services' %}"
+            class="flex items-center gap-2 transition duration-300"
+          >
+            <span>SERVICES</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-caret-down-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+              />
+            </svg>
+          </a>
+          <div
+            x-show="resourcesMenu"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-1"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-1"
+            class="absolute inset-x-0 z-10 mt-20 transform shadow-lg bg-secondary"
+          >
+            <div
+              class="container grid grid-cols-4 gap-4 pt-12 pb-8 text-sm uppercase"
+            >
+              <ul class="grid gap-6">
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'arbitration-lawyers-in-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Arbitration
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'banking-finance-lawyers-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Banking &amp; Finance
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'bankruptcy-insolvency-legal-services-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Bankruptcy &amp; Insolvency
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'commercial-lawyers-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Commercial Law
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'company-setup-incorporation-lawyers-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Company Setup &amp; Incorporation
+                  </a>
+                </li>
+              </ul>
+              <ul class="grid gap-6 h-fit">
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'competition-law-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Competition
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'corporate-structuring-re-structuring-lawyers-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Corporate Structuring &amp; Restructuring
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'criminal-lawyer-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Criminal Law
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'digital-data-law-firm-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Digital &amp; Data
+                  </a>
+                </li>
+              </ul>
+              <ul class="grid gap-6 h-fit">
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'employment-labour-lawyer-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Employment &amp; Incentives
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'family-inheritance-estate-planning-lawyers-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Family Inheritance &amp; Estate Planning
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'insurance-lawyers-in-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Insurance
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'intellectual-property-lawyer-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Intellectual Property
+                  </a>
+                </li>
+              </ul>
+              <ul class="grid gap-6 h-fit">
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'litigation-lawyers-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Litigation Advisory
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'real-estate-construction-lawyers-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Real Estate, Construction &amp; Infrastructure
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'shipping-aviation-logistics-legal-services' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    Shipping, Aviation &amp; Logistics
+                  </a>
+                </li>
+                <li class="pb-2 border-b border-b-primary">
+                  <a
+                    href="{% url 'service' 'white-collar-crime-lawyers-dubai' %}"
+                    class="flex gap-3 duration-300 hover:text-primary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-primary"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                    White Collar Crimes
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="">
+          <a href="{% url 'blog_list' %}">News</a>
+        </li>
+        <li class="">
+          <a href="{% url 'faqs' %}">FAQ</a>
+        </li>
+        <li class="">
+          <a href="{% url 'contact-us' %}">Contact</a>
+        </li>
+        <li class="">
+          <a href="{% url 'develawp_home' %}">Develawp</a>
+        </li>
+        <li class="" x-data="{searchSwitch: false}">
+          <div x-on:click="searchSwitch = !searchSwitch" x-show="!searchSwitch">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-search"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+              />
+            </svg>
+          </div>
+          <form
+            action="{% url 'search' %}"
+            method="GET"
+            x-show="searchSwitch"
+            x-transition.duration.300ms
+          >
+            <div class="relative mx-auto text-gray-600 lg:block">
+              <input
+                class="h-10 pl-2 pr-8 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none"
+                type="search"
+                name="q"
+                id="id_q"
+                placeholder="Search"
+              />
+              <button type="submit" class="absolute top-0 right-0 mt-3 mr-2">
+                <svg
+                  class="w-4 h-4 text-gray-600 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  version="1.1"
+                  id="Capa_1"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 56.966 56.966"
+                  style="enable-background: new 0 0 56.966 56.966"
+                  xml:space="preserve"
+                  width="512px"
+                  height="512px"
+                >
+                  <path
+                    d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="flex items-center navbar">
+  <div class="container pt-40 pb-14 md:pt-36">
+    <h1
+      class="max-w-5xl text-3xl font-bold leading-tight text-white normal-case md:text-7xl"
+    >
+      Leading
+      <span
+        class="ml-1 typer"
+        id="some-id"
+        data-words=" ,Arbitration,Real Estate,Litigation,Criminal,IP,Incorporation,Insurance,Bankruptcy,Employment,Inheritance,Corporate"
+        data-delay="60"
+        data-colors="#c89665"
+      ></span>
+      <br />
+      Lawyers in Dubai
+    </h1>
+    <div class="mt-12">
+      <a
+        href="{% url 'contact-us' %}"
+        class="btn bg-gold border-gold hover:bg-transparent text-third hover:text-gold"
+        >Let's Work Together</a
+      >
+    </div>
+  </div>
+</div>

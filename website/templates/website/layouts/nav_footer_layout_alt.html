@@ -1,0 +1,15 @@
+{% extends "website/layouts/base.html" %}
+
+{% load static %}
+
+{% block body %}
+{% include 'website/includes/navbar_alt.html' %}
+{% block content %}
+{% endblock content %}
+{% include 'website/includes/footer.html' %}
+{% endblock body %}
+
+
+{% block extra_script %}
+<script src="{% static 'website/js/al-adl-scrolling-nav.js' %}"></script>
+{% endblock extra_script %}

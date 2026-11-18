@@ -1,0 +1,25 @@
+{% extends "website/layouts/nav_footer_layout_alt.html" %}
+
+{% load static %}
+
+{% block title %}404 -Page Not Found | Al Adl Legal{% endblock %}
+
+{% block seo_og_title %}404 -Page Not Found | Al Adl Legal{% endblock %}
+{% block seo_url %}{{ block.super }}/page-not-found/{% endblock %}
+
+{% block tw_seo_title %}404 -Page Not Found{% endblock %}
+{% block tw_seo_url %}{{ block.super }}/page-not-found/{% endblock %}
+
+{% block canonical %}{{ block.super }}/page-not-found/{% endblock %}
+
+{% block content %}
+
+<section class="team-bg">
+    <div class="container flex items-center justify-center py-40">
+        <h1 class="pb-2 text-3xl text-primaryGreen border border-t-0 md:text-5xl border-b-primary w-fit border-x-0">
+            We Are Afraid We Could Not Understand Your Query!
+        </h1>
+    </div>
+</section>
+
+{% endblock content %}

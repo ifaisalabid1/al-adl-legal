@@ -1,0 +1,163 @@
+{% extends "website/layouts/nav_footer_layout_alt.html" %}
+{% load static %}
+
+{% block title %}Search Results | Al Adl Legal{% endblock %}
+
+{% block seo_og_title %}Search Results | Al Adl Legal{% endblock %}
+{% block seo_url %}{{ block.super }}{% url 'search' %}{% endblock %}
+
+{% block tw_seo_title %}Search Results | Al Adl Legal{% endblock %}
+{% block tw_seo_url %}{{ block.super }}{% url 'search' %}{% endblock %}
+
+{% block canonical %}{{ block.super }}{% url 'search' %}{% endblock %}
+
+{% block content %}
+
+  {% if not error %}
+    <h1
+      class="container pb-1 mt-24 text-3xl font-bold md:leading-normal md:text-5xl md:text-center text-neutral-700"
+    >
+      Search Results for <i>`{{ query }}`</i>:
+    </h1>
+    <div class="w-36 md:w-72 h-[2px] md:mx-auto bg-primary"></div>
+  {% else %}
+    <h1
+      class="container pb-1 mt-24 text-3xl font-bold md:leading-normal md:text-5xl md:text-center text-neutral-700"
+    >
+      Ask Al Adl Legal
+    </h1>
+    <div class="w-36 md:w-72 h-[2px] md:mx-auto bg-primary"></div>
+  {% endif %}
+
+  <form class="container flex items-center max-w-5xl mt-12 mb-24">
+    <label for="simple-search" class="sr-only">Search</label>
+    <div class="relative w-full">
+      <div
+        class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="27"
+          height="27"
+          viewBox="0 0 1760 1760"
+        >
+          <path
+            fill="#628078"
+            d="M1739 1504q0 53-37 90l-107 108q-39 37-91 37q-53 0-90-37l-363-364q-38-36-38-90q0-53 43-96L800 896l-126 126q-14 14-34 14t-34-14q2 2 12.5 12t12.5 13t10 11.5t10 13.5t6 13.5t5.5 16.5t1.5 18q0 38-28 68q-3 3-16.5 18t-19 20.5T582 1243t-22 15.5t-22 9t-26 4.5q-40 0-68-28L36 836Q8 808 8 768q0-13 4.5-26t9-22T37 698t16.5-18.5t20.5-19T92 644q30-28 68-28q10 0 18 1.5t16.5 5.5t13.5 6t13.5 10t11.5 10t13 12.5t12 12.5q-14-14-14-34t14-34l348-348q14-14 34-14t34 14q-2-2-12.5-12T649 233t-10-11.5t-10-13.5t-6-13.5t-5.5-16.5t-1.5-18q0-38 28-68q3-3 16.5-18t19-20.5T698 37t22-15.5t22-9T768 8q40 0 68 28l408 408q28 28 28 68q0 13-4.5 26t-9 22t-15.5 22t-16.5 18.5t-20.5 19t-18 16.5q-30 28-68 28q-10 0-18-1.5t-16.5-5.5t-13.5-6t-13.5-10t-11.5-10t-13-12.5t-12-12.5q14 14 14 34t-14 34L896 800l256 256q43-43 96-43q52 0 91 37l363 363q37 39 37 91z"
+          />
+        </svg>
+      </div>
+      <input
+        type="text"
+        name="query"
+        placeholder="  Search for Matching Services and Article"
+        value="{{ query }}"
+        id="simple-search"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full pl-10 p-2.5"
+        required
+      />
+    </div>
+    <button
+      type="submit"
+      class="p-2.5 ml-2 text-sm font-medium text-white bg-secondary rounded-lg border border-secondary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary"
+    >
+      <svg
+        class="w-4 h-4"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 20 20"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+        />
+      </svg>
+      <span class="sr-only">Search</span>
+    </button>
+  </form>
+
+  {% if not error %}
+    < class="container">
+    <h2 class="mt-4 mb-6 text-xl font-bold">Matching Services</h2>
+    <div
+      class="grid grid-cols-2 gap-6 pb-2 mt-6 md:grid-cols-4 md:gap-x-28 md:gap-y-20"
+    >
+      {% for service in services %}
+        <a href="{% url 'service' service.slug %}">
+          <div
+            class="pb-16 border border-r-0 border-y-0 border-l-primary"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
+            <h3 class="pb-2 pl-3 md:text-base">{{ service.name }}</h3>
+            {% if service.thumbnail_image %}
+              <img
+                loading="lazy"
+                src="{{ service.thumbnail_image.url }}"
+                alt="{{ service.name }}"
+              />
+            {% endif %}
+          </div>
+        </a>
+        {% empty %} No Matching Services
+      {% endfor %}
+    </div>
+
+    <hr />
+    <h2 class="mt-8 text-xl font-bold">Matching Blogs</h2>
+    <section class="grid gap-8 pb-4 mt-6 md:grid-cols-3">
+      {% for blog in blogs %}
+        {% include 'blog/includes/single_blog_card.html' with blog=blog %}
+        {% empty %}
+        No Matching Blogs
+      {% endfor %}
+    </section>
+
+    <hr />
+    <h2 class="mt-8 text-xl font-bold">Matching FAQ's</h2>
+    <section class="mt-6 mb-20 ">
+      <div x-data="{selected: null}" class="w-full mx-auto mt-10 space-y-4">
+        {% for faq in faqs %}
+          <div class="w-full py-1 bg-gray-200 border cursor-pointer">
+            <div
+              @click="selected != {{ forloop.counter }} ? selected = {{ forloop.counter }} : selected =null"
+              class="flex items-center justify-between px-8"
+            >
+              <h4 class="py-2 text-2xl font-bold text-primary">
+                {{ faq.question }}
+              </h4>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x-bind:class="selected == {{ forloop.counter }}? 'transform rotate-180':''"
+                class="w-5 h-5 transition-all duration-300"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+
+            <div
+              class="overflow-hidden transition-all duration-300 max-h-0"
+              x-ref="tab{{ forloop.counter }}"
+              :style="selected == {{ forloop.counter }} ? 'max-height: '+ $refs.tab{{ forloop.counter }}.scrollHeight+ 'px;':''"
+            >
+              <p class="px-8 py-2 text-justify">{{ faq.answer }}</p>
+            </div>
+          </div>
+          {% empty %} No Matching FAQ's
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+{% endblock content %}

@@ -1,0 +1,22 @@
+<div style="background-color:white">
+    <center><img loading="lazy" src="{{ config.COMPANY_LOGO }}" alt="Al Adl Website"></center>
+    <center><h2 style="color:#395e9c"> Hi ,  <span style="font-family: sans-serif;font-size:25px">
+        <b>Admins </b>
+    </span>! New Enquiry in Website</h2></center>
+    <br>
+    <div style="color:black;font-size:20px">
+        Name: {{ enquiry.name }} <br>
+        Phone Number: {{ enquiry.phone_number }}<br>
+        Query Type: {{ enquiry.type_of_query }}<br>
+        Service: {{ enquiry.service }}<br>
+        Email Id: {{ enquiry.email }}<br>
+        Query: {{ enquiry.query }}<br>
+    </div>
+    <p>
+        <br>
+        <code>
+            This is an automated mail please don't reply as your mails may go unnoticed.
+            <center><span style="color:#395e9c"><b>&copy; {% now 'Y' %}, {{ config.COMPANY_SITE_HEADER }} </b></span></center>
+        </code>
+    </p>
+</div>

@@ -1,0 +1,30 @@
+@config "../../../tailwind.develawp.config.js";
+
+@tailwind base;
+@layer base {
+  html {
+    @apply scroll-smooth scroll-pt-20 md:scroll-pt-40;
+  }
+
+  body {
+    @apply font-openSans text-[#364d61];
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-slate-900;
+  }
+}
+
+@tailwind components;
+@layer components {
+  .btn_develawp {
+    @apply inline-block px-4 py-2 text-3xl font-semibold capitalize duration-300 border-2 rounded-lg text-secondary border-gold hover:bg-transparent bg-gold hover:text-gold;
+  }
+}
+
+@tailwind utilities;

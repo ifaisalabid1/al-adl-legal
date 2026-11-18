@@ -1,0 +1,7 @@
+Enquiry:
+Name: {{ enquiry.name }}
+Phone Number: {{ enquiry.phone_number }}
+Query Type: {{ enquiry.type_of_query }}
+Service: {{ enquiry.service }}
+Email Id: {{ enquiry.email }}
+Query: {{ enquiry.query }}

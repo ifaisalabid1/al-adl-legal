@@ -1,0 +1,579 @@
+{% extends "website/layouts/nav_footer_layout.html" %}
+{% load static %}
+{% block title %}
+  Best Lawyers in Dubai | Top Advocates &amp; Legal Consultants - Al Adl Legal
+{% endblock %}
+{% block seo_description %}
+  Al Adl Advocates & Legal Consultants is a top-ranked law firm in Dubai
+  specializing in criminal defense, arbitration, family law, corporate, and debt
+  recovery services to many top companies. Trusted across many countries.
+  Contact us for a confidential consultation!
+{% endblock %}
+{% block seo_og_title %}Best Advocates &amp; Lawyers in Dubai - Al Adl Legal{% endblock %}
+{% block seo_url %}
+  {{ block.super }}{% url 'home' %}
+{% endblock %}
+{% block tw_seo_title %}Best Advocates &amp; Lawyers in Dubai - Al Adl Legal{% endblock %}
+{% block tw_seo_url %}
+  {{ block.super }}{% url 'home' %}
+{% endblock %}
+{% block canonical %}
+  {{ block.super }}{% url 'home' %}
+{% endblock %}
+{% block preloader %}
+  <link as="image" href="/static/website/img/banner-bg.webp" rel="preload" />
+{% endblock preloader %}
+{% block content %}
+  <!-- about us -->
+  <section class="container max-w-6xl my-20 md:my-28"
+           data-aos="fade-up"
+           data-aos-duration="1000">
+    <h2 class="pb-1 text-3xl font-bold text-center text-neutral-700 md:leading-normal md:text-5xl">
+      Al Adl - Your Trusted Legal Consultants in
+      <span class="text-gold">Dubai & the UAE</span>
+    </h2>
+    <div class="w-36 md:w-72 h-[2px] mx-auto bg-primary"></div>
+    <p class="mt-8 text-justify">
+      Al Adl is a premier legal consultancy firm in Dubai specialising in
+      providing tailored legal services to meet the individual needs of its
+      clients. With its extensive experience and dedication to excellence, Al
+      Adl is committed to protecting its clients' rights, upholding the rule of
+      law, and achieving the best possible results.
+    </p>
+    <p class="mt-4 text-justify">
+      Our team of qualified
+      <strong>advocates and legal consultants</strong> brings deep expertise
+      across
+      <strong>UAE Penal Code, Civil Law, DIFC regulations, Personal Status Law, and
+        Sharia-compliant finance</strong>. Whether you are facing a criminal investigation, a corporate dispute,
+      or a family matter, we provide strategic counsel grounded in UAE law and
+      international standards.
+    </p>
+    <p class="mt-4 text-justify">
+      We serve clients in Arabic and English, making us the preferred choice for
+      UAE nationals, expatriates, and international businesses operating in
+      Dubai and across the Emirates.
+    </p>
+    <img loading="lazy"
+         src="{% static 'website/img/team-homepage.webp' %}"
+         alt=""
+         class="mx-auto mt-12 md:w-[75%] rounded" />
+    <div class="mt-12 text-center">
+      <a href="{% url 'about-us' %}" class="btn">More about us</a>
+    </div>
+  </section>
+  <!-- about us end -->
+  <!-- practical areas -->
+  <section class="container relative mx-auto my-20 max-w-[85rem] md:my-28">
+    <div class="mb-10 text-center md:mb-16">
+      <h2 class="pb-1 text-3xl font-bold text-center text-neutral-700 md:leading-normal md:text-5xl">Services</h2>
+      <div class="w-36 md:w-72 h-[2px] mx-auto bg-primary"></div>
+    </div>
+    <div class="flex flex-col gap-12">
+      <div class="sticky flex flex-col md:flex-row items-center justify-between p-8 md:p-12 rounded-[2.5rem] transition-all duration-500 bg-secondary shadow-xl border border-secondary"
+           style="top: 6rem;
+                  z-index: 20">
+        <div class="w-full mb-8 md:w-1/2 md:mb-0 md:pr-12">
+          <a href="{% url 'service' 'litigation-lawyers-dubai' %}"
+             title="Al Adl Legal Corporate Litigation">
+            <h3 class="mb-4 text-2xl font-bold text-white font-kulimPark md:text-4xl md:mb-6">Litigation</h3>
+          </a>
+          <p class="text-base leading-relaxed text-white md:text-lg">
+            Work with the Best Litigation Lawyers in Dubai, UAE. Contact us
+            today for a consultation and let us guide you through the
+            complexities of litigation with clarity and confidence.
+          </p>
+        </div>
+        <div class="flex justify-center w-full md:w-1/2 md:justify-end">
+          <a href="{% url 'service' 'litigation-lawyers-dubai' %}"
+             class="relative flex items-center justify-center w-full aspect-[4/3] max-w-md rounded-3xl overflow-hidden shadow-sm bg-[#224953] hover:bg-[#325d68] transition-colors">
+            <img loading="lazy"
+                 src="{% static 'website/img/litigation.png' %}"
+                 alt="Al Adl Legal Corporate Litigation"
+                 class="object-contain w-1/2 h-auto md:w-2/3 drop-shadow-md" />
+          </a>
+        </div>
+      </div>
+      <div class="sticky flex flex-col md:flex-row items-center justify-between p-8 md:p-12 rounded-[2.5rem] transition-all duration-500 bg-[#f3f0e8] shadow-xl border border-[#f3f0e8]"
+           style="top: 7.5rem;
+                  z-index: 40">
+        <div class="w-full mb-8 md:w-1/2 md:mb-0 md:pr-12">
+          <a href="{% url 'service' 'arbitration-lawyers-in-dubai' %}"
+             title="Al Adl Legal Arbitration">
+            <h3 class="mb-4 text-2xl font-bold text-secondary font-kulimPark md:text-4xl md:mb-6">Arbitration</h3>
+          </a>
+          <p class="text-base leading-relaxed text-gray-700 md:text-lg">
+            Efficient Dispute Resolution through Expert Arbitration Services.
+            With in-depth knowledge of the UAE's economic landscape, legal
+            framework and workplace practices, we offer tailored arbitration
+            solutions.
+          </p>
+        </div>
+        <div class="flex justify-center w-full md:w-1/2 md:justify-end">
+          <a href="{% url 'service' 'arbitration-lawyers-in-dubai' %}"
+             class="relative flex items-center justify-center w-full aspect-[4/3] max-w-md rounded-3xl overflow-hidden shadow-sm bg-secondary hover:bg-secondary/80 transition-colors">
+            <img loading="lazy"
+                 src="{% static 'website/img/arbitration.png' %}"
+                 alt="Al Adl Legal Arbitration"
+                 class="object-contain w-1/2 h-auto md:w-2/3 drop-shadow-md" />
+          </a>
+        </div>
+      </div>
+      <div class="sticky flex flex-col md:flex-row items-center justify-between p-8 md:p-12 rounded-[2.5rem] transition-all duration-500 bg-secondary shadow-xl border border-secondary"
+           style="top: 9rem;
+                  z-index: 60">
+        <div class="w-full mb-8 md:w-1/2 md:mb-0 md:pr-12">
+          <a href="{% url 'service' 'bankruptcy-insolvency-legal-services-dubai' %}"
+             title="Al Adl Legal Bankruptcy and Insolvency">
+            <h3 class="mb-4 text-2xl font-bold text-white font-kulimPark md:text-4xl md:mb-6">Bankruptcy &amp; Insolvency</h3>
+          </a>
+          <p class="text-base leading-relaxed text-white md:text-lg">
+            Comprehensive strategies for Bankruptcy and Insolvency to mitigate
+            risks and optimise outcomes.
+          </p>
+        </div>
+        <div class="flex justify-center w-full md:w-1/2 md:justify-end">
+          <a href="{% url 'service' 'bankruptcy-insolvency-legal-services-dubai' %}"
+             class="relative flex items-center justify-center w-full aspect-[4/3] max-w-md rounded-3xl overflow-hidden shadow-sm bg-[#224953] hover:bg-[#325d68] transition-colors">
+            <img loading="lazy"
+                 src="{% static 'website/img/bankruptcy.png' %}"
+                 alt="Al Adl Legal Bankruptcy and Insolvency"
+                 class="object-contain w-1/2 h-auto md:w-2/3 drop-shadow-md" />
+          </a>
+        </div>
+      </div>
+      <div class="sticky flex flex-col md:flex-row items-center justify-between p-8 md:p-12 rounded-[2.5rem] transition-all duration-500 bg-[#f3f0e8] shadow-xl border border-[#f3f0e8]"
+           style="top: 10.5rem;
+                  z-index: 80">
+        <div class="w-full mb-8 md:w-1/2 md:mb-0 md:pr-12">
+          <a href="{% url 'service' 'criminal-lawyer-dubai' %}"
+             title="Al Adl Legal Criminal Law">
+            <h3 class="mb-4 text-2xl font-bold text-secondary font-kulimPark md:text-4xl md:mb-6">Criminal Law</h3>
+          </a>
+          <p class="text-base leading-relaxed text-gray-700 md:text-lg">
+            Facing a criminal investigation can be immense, but you don’t have
+            to face it alone. Protect your rights, freedom, and future with the
+            trusted lawyers of Al Adl. Contact us today for reliable criminal
+            legal support.
+          </p>
+        </div>
+        <div class="flex justify-center w-full md:w-1/2 md:justify-end">
+          <a href="{% url 'service' 'criminal-lawyer-dubai' %}"
+             class="relative flex items-center justify-center w-full aspect-[4/3] max-w-md rounded-3xl overflow-hidden shadow-sm bg-secondary hover:bg-secondary/80 transition-colors">
+            <img loading="lazy"
+                 src="{% static 'website/img/criminal-law.png' %}"
+                 alt="Al Adl Legal Criminal Law"
+                 class="object-contain w-1/2 h-auto md:w-2/3 drop-shadow-md" />
+          </a>
+        </div>
+      </div>
+      <div class="sticky flex flex-col md:flex-row items-center justify-between p-8 md:p-12 rounded-[2.5rem] transition-all duration-500 bg-secondary shadow-xl border border-secondary"
+           style="top: 12rem;
+                  z-index: 100">
+        <div class="w-full mb-8 md:w-1/2 md:mb-0 md:pr-12">
+          <a href="{% url 'service' 'employment-labour-lawyer-dubai' %}"
+             title="Al Adl Legal Employment and Labour">
+            <h3 class="mb-4 text-2xl font-bold text-white font-kulimPark md:text-4xl md:mb-6">Employment &amp; Labour</h3>
+          </a>
+          <p class="text-base leading-relaxed text-white md:text-lg">
+            Effective Employment and Labour Legal Services to manage challenges
+            and opportunities in managing workforce and creating effective
+            incentives programmes.
+          </p>
+        </div>
+        <div class="flex justify-center w-full md:w-1/2 md:justify-end">
+          <a href="{% url 'service' 'employment-labour-lawyer-dubai' %}"
+             class="relative flex items-center justify-center w-full aspect-[4/3] max-w-md rounded-3xl overflow-hidden shadow-sm bg-[#224953] hover:bg-[#325d68] transition-colors">
+            <img loading="lazy"
+                 src="{% static 'website/img/employment.png' %}"
+                 alt="Al Adl Legal Employment and Labour"
+                 class="object-contain w-1/2 h-auto md:w-2/3 drop-shadow-md" />
+          </a>
+        </div>
+      </div>
+      <div class="sticky flex flex-col md:flex-row items-center justify-between p-8 md:p-12 rounded-[2.5rem] transition-all duration-500 bg-[#f3f0e8] shadow-xl border border-[#f3f0e8]"
+           style="top: 13.5rem;
+                  z-index: 120">
+        <div class="w-full mb-8 md:w-1/2 md:mb-0 md:pr-12">
+          <a href="{% url 'service' 'corporate-structuring-re-structuring-lawyers-dubai' %}"
+             title="Al Adl Legal Corporate Structuring and Restructuring">
+            <h3 class="mb-4 text-2xl font-bold text-secondary font-kulimPark md:text-4xl md:mb-6">
+              Corporate Structuring &amp; Restructuring
+            </h3>
+          </a>
+          <p class="text-base leading-relaxed text-gray-700 md:text-lg">
+            Corporate Structuring and Restructuring legal services to build a
+            solid corporate foundation and adapt to a changing business
+            environment.
+          </p>
+        </div>
+        <div class="flex justify-center w-full md:w-1/2 md:justify-end">
+          <a href="{% url 'service' 'corporate-structuring-re-structuring-lawyers-dubai' %}"
+             class="relative flex items-center justify-center w-full aspect-[4/3] max-w-md rounded-3xl overflow-hidden shadow-sm bg-secondary hover:bg-secondary/90 transition-colors">
+            <img loading="lazy"
+                 src="{% static 'website/img/corporate structuring.png' %}"
+                 alt="Al Adl Legal Corporate Structuring and Restructuring"
+                 class="object-contain w-1/2 h-auto md:w-2/3 drop-shadow-md" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-24 text-center" style="position: relative; z-index: 150;">
+      <a href="{% url 'services' %}"
+         class="px-8 py-3 text-white transition-opacity rounded-full btn bg-secondary hover:opacity-90">View All</a>
+    </div>
+  </section>
+  <!-- practical areas end -->
+  <div>{% include "website/includes/al_adl_in_numbers.html" %}</div>
+  <!-- team -->
+  <section class="bg-[#e9e9e8]">
+    <div class="container grid items-center grid-cols-1 md:gap-8 md:grid-cols-2">
+      <div class="pt-16 team-section"
+           data-aos="fade-up"
+           data-aos-duration="1000">
+        <div class="team-slide swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/azaan-slider.webp' %}"
+                   alt="MD Azaan Salahuddin - Al Adl Legal" />
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/eldaly-slider2.webp' %}"
+                   alt="Eldaly Ahmed Ismail Hassan - Al Adl Legal" />
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/kabbani-slider.webp' %}"
+                   alt="Wassim Kabbani - Al Adl Legal" />
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/mohamad-slider.webp' %}"
+                   alt="Mohamed Khaled Marey Mohamed - Al Adl Legal" />
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/mansoor-slider.webp' %}"
+                   alt="Mansoor Madarwala - Al Adl Legal" />
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/youssry-slider.webp' %}"
+                   alt="Ahmed Youssry - Al Adl Legal" />
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/javed-slider.webp' %}"
+                   alt="Javed Iqbal - Al Adl Legal" />
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/hiba-slider.webp' %}"
+                   alt="Hiba Fatima - Al Adl Legal" />
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/ayaz-slider.webp' %}"
+                   alt="Ayaz Rahman - Al Adl Legal" />
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/junaid-ahmad-slider.webp' %}"
+                   alt="Junaid Ahmed - Al Adl Legal" />
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/zoya-slider.webp' %}"
+                   alt="Zoya Taiyab - Al Adl Legal" />
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/yousra-slider.webp' %}"
+                   alt="Yousra Abid - Al Adl Legal" />
+            </div>
+            <div class="swiper-slide">
+              <img loading="lazy"
+                   src="{% static 'website/img/muhammad-anas-slider.webp' %}"
+                   alt="Muhammad Anas - Al Adl Legal" />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+      <div class="py-16 team-section-content"
+           data-aos="fade-up"
+           data-aos-duration="1000">
+        <h2 class="pb-1 text-3xl font-bold text-center normal-case text-neutral-700 md:text-5xl md:leading-tight md:text-left">
+          Your Trusted Legal Partners in
+          <span class="text-gold">Dubai, UAE</span>
+        </h2>
+        <div class="w-36 md:w-72 h-[2px] mx-auto bg-primary md:hidden"></div>
+        <div class="text-justify text-third">
+          <p class="mt-8">
+            At Al Adl Advocates &amp; Legal Consultants, we are recognised as
+            one of Dubai's most trusted legal consultancy firms serving
+            individuals, families, and businesses across the UAE. Whether you
+            are facing a criminal investigation, a corporate dispute, a family
+            matter, or a financial crime allegation, our team delivers strategic
+            legal counsel grounded in UAE law and international best practice.
+          </p>
+          <p class="mt-4">
+            Azaan Salahuddin, Managing Partner of Al Adl Legal, is one of your
+            trusted legal partners in Dubai, UAE. With extensive expertise in
+            corporate structuring, cross-border transactions, tax optimization,
+            and regulatory compliance, Azaan delivers tailored legal solutions
+            that help businesses successfully enter and operate in the UAE
+            market. As featured in
+            <a href="https://www.forbes.com.au/brand-voice/uncategorized/azaan-salahuddin-and-al-adl-legals-solutions-for-australian-businesses/"
+               target="_blank"
+               class="text-blue-600 underline">Forbes</a>, his practical approach and client-focused service ensure your
+            rights are protected and your business goals are achieved with
+            confidence and excellence.
+          </p>
+          <p class="mt-4">
+            Our advocates operate across every mode of legal resolution, skilled
+            negotiation, structured mediation, DIAC and DIFC-LCIA arbitration,
+            and assertive courtroom litigation before Dubai and UAE federal
+            courts. Whichever path best serves your interests, we bring the same
+            standard of excellence to it. Your rights, your freedom, and your
+            future are our priority and we pursue them with the determination
+            they deserve.
+          </p>
+          <p class="mt-4">
+            We serve clients in Arabic and English, making Al Adl the natural
+            choice for UAE nationals, expatriates, and international
+            corporations operating in Dubai and across the Emirates.
+            Consultations are strictly confidential.
+          </p>
+        </div>
+        <div class="mt-12">
+          <a href="{% url 'legal-team' %}" class="btn">Meet Our Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% comment %}team end{% endcomment %}
+  <!-- features -->
+  <section class="my-20 md:my-28">
+    {% include "website/includes/feature_box.html" %}
+  </section>
+  <!-- features end -->
+  <!-- news -->
+  <section class="container my-20 md:my-28"
+           data-aos="fade-up"
+           data-aos-duration="1000">
+    <div class="flex items-center justify-between gap-1">
+      <h2 class="pb-2 text-2xl font-bold border-b-2 md:text-3xl w-fit border-b-primary text-neutral-700">
+        News &amp; Events
+      </h2>
+      <div>
+        <a href="{% url 'blog_list' %}"
+           class="flex items-center gap-2 px-3 py-1 md:py-2 md:px-6 btn">View All
+          <svg xmlns="http://www.w3.org/2000/svg"
+               width="16"
+               height="16"
+               fill="currentColor"
+               class="hidden bi bi-arrow-right-circle-fill md:block"
+               viewBox="0 0 16 16">
+            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 mt-8 md:grid-cols-2 gap-7">
+      {% for blog in blogs %}
+        {% if forloop.counter == 1 %}
+          <div>
+            <a href="{% url 'blog_detail' blog.slug %}">
+              <img loading="lazy"
+                   src="{{ blog.thumbnail_image.url }}"
+                   alt="{{ blog.title }}"
+                   class="w-full" />
+              <div class="inline-block px-5 py-1 mt-4 btn border-secondary hover:border-primary bg-secondary">
+                {{ blog.blog_category.name }}
+              </div>
+              <h3 class="mt-4 text-xl font-bold">{{ blog.title }}</h3>
+              <p>Click to read more about {{ blog.title }}</p>
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+      <div class="flex flex-col gap-7">
+        {% for blog in blogs %}
+          {% if not forloop.counter == 1 %}
+            <div>
+              <a href="{% url 'blog_detail' blog.slug %}">
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <div>
+                    <img loading="lazy"
+                         src="{{ blog.thumbnail_image.url }}"
+                         alt="{{ blog.title }}"
+                         class="w-full" />
+                  </div>
+                  <div>
+                    <div class="inline-block px-4 py-1 text-xs btn bg-secondary border-secondary hover:border-primary">
+                      {{ blog.blog_category.name }}
+                    </div>
+                    <h3 class="mt-3 text-lg font-bold leading-6">{{ blog.title }}</h3>
+                    <p class="mt-3">Click to read more about {{ blog.title }}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- news end -->
+  <!-- testimonial -->
+  <section class="container my-20 md:my-28">
+    <h2 class="pb-2 text-2xl font-bold text-center md:leading-normal md:text-5xl text-neutral-700">
+      Trusted by Clients Across <span class="text-gold">Dubai & Beyond</span>
+    </h2>
+    <div class="w-36 md:w-72 h-[2px] mx-auto bg-primary"></div>
+    <div class="mt-12">
+      <div class="testimonial swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" data-aos="fade-up" data-aos-duration="1000">
+            <div class="relative">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                   width="100"
+                   height="100"
+                   fill="currentColor"
+                   class="absolute bi bi-quote text-secondary -top-12 left-4"
+                   viewBox="0 0 16 16">
+                <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z" />
+              </svg>
+              <div class="grid content-between gap-12 px-6 pt-12 pb-6 text-third bg-white md:h-[30rem] mt-8 shadow-xl border border-t-0 border-l-8 border-l-primary">
+                <p class="italic">
+                  "I had the benefit of working with Al Adl Legal Firm in Dubai
+                  on a complex commercial dispute, and their expertise and
+                  professionalism were truly phenomenal. Their deep
+                  understanding of UAE law, keen attention to detail, and
+                  calculated strategy helped us achieve a favorable outcome. I
+                  highly recommend their services."
+                </p>
+                <div class="flex items-center justify-between gap-8">
+                  <h3 class="text-lg capitalize text-secondary">Ahmed Shah</h3>
+                  <img loading="lazy"
+                       src="{% static 'website/img/testimonial-hand.png' %}"
+                       alt=""
+                       class="w-28" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide" data-aos="fade-up" data-aos-duration="1000">
+            <div class="relative">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                   width="100"
+                   height="100"
+                   fill="currentColor"
+                   class="absolute bi bi-quote text-secondary -top-12 left-4"
+                   viewBox="0 0 16 16">
+                <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z" />
+              </svg>
+              <div class="grid content-between gap-12 px-6 pt-12 pb-6 text-third bg-white md:h-[30rem] mt-8 shadow-xl border border-t-0 border-l-8 border-l-primary">
+                <p class="italic">
+                  "I had the pleasure of working with Al Adl Legal Firm in Dubai
+                  on a challenging intellectual property matter, and they
+                  exceeded my expectations. Their team demonstrated a deep
+                  understanding of intellectual property laws in Dubai and
+                  provided invaluable guidance in protecting my innovations.
+                  They become a reliable partner due to their professionalism,
+                  dedication, and personalized approach. I wouldn't think twice
+                  about using their services again."
+                </p>
+                <div class="flex items-center justify-between gap-8">
+                  <h3 class="text-lg capitalize text-secondary">Sarah Hayat</h3>
+                  <img loading="lazy"
+                       src="{% static 'website/img/testimonial-hand.png' %}"
+                       alt=""
+                       class="w-28" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide" data-aos="fade-up" data-aos-duration="1000">
+            <div class="relative">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                   width="100"
+                   height="100"
+                   fill="currentColor"
+                   class="absolute bi bi-quote text-secondary -top-12 left-4"
+                   viewBox="0 0 16 16">
+                <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z" />
+              </svg>
+              <div class="grid content-between gap-12 px-6 pt-12 pb-6 text-third bg-white md:h[30rem] md:h-[30rem] mt-8 shadow-xl border border-t-0 border-l-8 border-l-primary">
+                <p class="italic">
+                  "As an entrepreneur, I needed comprehensive legal support for
+                  setting up my business in Dubai. Al Adl Legal Firm in Dubai
+                  provided exceptional service, ensuring that all legal aspects
+                  were handled carefully. Their expertise in corporate law and
+                  understanding of local regulations were crucial in getting my
+                  business up and running smoothly. I appreciate their
+                  professionalism and heartily recommend their services."
+                </p>
+                <div class="flex items-center justify-between gap-8">
+                  <h3 class="text-lg capitalize text-secondary">Ali Raza</h3>
+                  <img loading="lazy"
+                       src="{% static 'website/img/testimonial-hand.png' %}"
+                       alt=""
+                       class="w-28" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide" data-aos="fade-up" data-aos-duration="1000">
+            <div class="relative">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                   width="100"
+                   height="100"
+                   fill="currentColor"
+                   class="absolute bi bi-quote text-secondary -top-12 left-4"
+                   viewBox="0 0 16 16">
+                <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z" />
+              </svg>
+              <div class="grid content-between gap-12 px-6 pt-12 pb-6 text-third bg-white md:h-[30rem] mt-8 shadow-xl border border-t-0 border-l-8 border-l-primary">
+                <p class="italic">
+                  "I sought the legal services of Al Adl Legal Firm in Dubai for
+                  a real estate transaction, and I couldn't be happier with the
+                  outcome. Their team was helpful, knowledgeable, and gave clear
+                  guidance throughout the process. Their commitment to
+                  safeguarding my interests was evident, and I would confidently
+                  recommend their Legal Consultants for any legal matters."
+                </p>
+                <div class="flex items-center justify-between gap-8">
+                  <h3 class="text-lg capitalize text-secondary">Fatima Asgar</h3>
+                  <img loading="lazy"
+                       src="{% static 'website/img/testimonial-hand.png' %}"
+                       alt=""
+                       class="w-28" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </section>
+  <!-- testimonial end -->
+  <!-- contact -->
+  <div class="py-16 mt-20 md:mt-28 contact-homepage"
+       data-aos="fade-up"
+       data-aos-duration="1000">{% include "website/includes/contact_section.html" %}</div>
+  <!-- contact end -->
+{% endblock content %}
+{% block extra_script %}
+  <script src="{% static 'website/js/home-page-swiper.js' %}" defer></script>
+{% endblock extra_script %}

@@ -1,0 +1,12 @@
+<div>
+    <div class="overflow-hidden">
+        <img loading="lazy" src="{{ member.image.url }}" alt="{{ member.name }}"
+             class="transition-all duration-300 ease-in hover:scale-105">
+    </div>
+
+    {% if not read_more %}
+    <div class="mt-8">
+        <a href="{% url 'legal-team-individual' member.slug  %}" class="btn">Read More</a>
+    </div>
+    {% endif %}
+</div>

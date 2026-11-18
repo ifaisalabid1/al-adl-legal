@@ -1,0 +1,43 @@
+{% extends "develawp/layouts/nav_footer_layout.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- courses -->
+<section class="bg-secondary py-36" id="courses">
+  <div class="container text-center">
+    <h2 class="font-extrabold text-white text-7xl md:leading-tight">
+      Featured Courses
+    </h2>
+
+    <div class="h-2 mx-auto mt-8 w-44 bg-gold"></div>
+
+
+    <div class="grid grid-cols-1 gap-16 md:grid-cols-3 mt-14">
+      {% for course in courses %}
+      <div>
+        <div>
+          <img src="{% static 'develawp/img/card_img.jpg' %}" alt="" class="rounded-t-3xl" />
+        </div>
+
+        <div class="px-8 py-12 duration-300 bg-white rounded-b-3xl hover:bg-gold hover:text-secondary group">
+          <h3 class="text-xl font-bold uppercase group-hover:text-secondary text-secondary">
+            {{ course.title }}
+          </h3>
+          <p class="mt-6">{{ course.short_description }}</p>
+
+          <div class="mt-10">
+            <a href="{% url 'devalawp_course_detail' course.slug %}"
+              class="py-3 text-base btn_develawp group-hover:bg-secondary group-hover:text-white hover:border-2 hover:border-secondary">
+              Enroll Now
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- courses categories end -->
+{% endblock content %}
